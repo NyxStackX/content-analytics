@@ -88,7 +88,7 @@ Pour lancer le dashboard :
 ```sh
 streamlit run dashboard/app.py
 
-#### Ouvrir avec : http://localhost:8501/
+Ouvrir avec : http://localhost:8501/
 ```
 
 ## Résultats principaux
