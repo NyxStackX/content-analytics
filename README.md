@@ -97,19 +97,19 @@ Le projet dispose d'un pipeline permettant de reproduire le nettoyage, la valida
 
 ### Nettoyage et validation
 
-```bash
+```sh
 python src/pipeline.py
 ```
 
 ### Génération des résultats
 
-```bash
+```sh
 python src/generate_results.py
 ```
 
 ### Tests
 
-```bash
+```sh
 python -m pytest tests/
 ```
 
@@ -171,4 +171,5 @@ Les notebooks sont organisés progressivement afin de séparer les différentes 
 
 ## Auteur
 
-Projet personnel réalisé dans le cadre de mon Bachelor à Epitech Bordeaux.
+Projet personnel réalisé dans le cadre de mon apprentissage.
+
