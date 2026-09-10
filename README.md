@@ -24,6 +24,8 @@ content-analytics/
 ├── data/
 │   ├── raw/
 │   └── processed/
+├── dashboard/
+│   └── app.py
 ├── notebooks/
 │   ├── 01_exploration.ipynb
 │   ├── 02_cleaning_validation.ipynb
@@ -65,6 +67,8 @@ Les analyses sont réalisées principalement avec Python et les bibliothèques s
 
 ## Technologies
 
+- Streamlit
+
 - Python
 - Pandas
 - NumPy
@@ -73,6 +77,17 @@ Les analyses sont réalisées principalement avec Python et les bibliothèques s
 - Scikit-learn
 - Jupyter Notebook
 - Pytest
+- Streamlit
+
+## Dashboard interactif
+
+Le projet comprend un dashboard développé avec **Streamlit** afin de rendre les analyses accessibles de manière interactive. Il propose des vues dédiées aux contenus, catégories, pays, classifications, durées et insights, ainsi qu’un filtre global par type de contenu.
+
+Pour lancer le dashboard :
+
+```sh
+streamlit run dashboard/app.py
+```
 
 ## Résultats principaux
 
