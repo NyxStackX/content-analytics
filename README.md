@@ -87,6 +87,8 @@ Pour lancer le dashboard :
 
 ```sh
 streamlit run dashboard/app.py
+
+#### Ouvrir avec : http://localhost:8501/
 ```
 
 ## Résultats principaux
@@ -187,4 +189,5 @@ Les notebooks sont organisés progressivement afin de séparer les différentes 
 ## Auteur
 
 Projet personnel réalisé dans le cadre de mon apprentissage.
+
 
