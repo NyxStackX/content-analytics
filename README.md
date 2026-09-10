@@ -1,3 +1,4 @@
+
 # Content Analytics
 
 Projet d'analyse de données consacré à l'étude d'un catalogue de contenus audiovisuels.
@@ -72,16 +73,16 @@ Les données brutes ne sont pas versionnées dans Git afin de conserver un dép�
 
 Les notebooks sont organisés progressivement afin de séparer les différentes étapes du projet :
 
-- **01 — Exploration générale**
-- **02 — Nettoyage et validation**
-- **03 — Analyse des contenus**
-- **04 — Analyse des genres et catégories**
-- **05 — Analyse des pays**
-- **06 — Analyse des classifications**
-- **07 — Analyse des durées**
-- **08 — Analyses croisées**
-- **09 — Insights finaux**
+- **01 - Exploration générale**
+- **02 - Nettoyage et validation**
+- **03 - Analyse des contenus**
+- **04 - Analyse des genres et catégories**
+- **05 - Analyse des pays**
+- **06 - Analyse des classifications**
+- **07 - Analyse des durées**
+- **08 - Analyses croisées**
+- **09 - Insights finaux**
 
 ## Auteur
 
-Projet personnel réalisé dans le cadre de mon parcours en Bachelor à Epitech.
+Projet personnel réalisé dans le cadre de mon parcours d'apprentissage.
