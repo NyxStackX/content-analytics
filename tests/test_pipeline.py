@@ -82,3 +82,25 @@ def test_validate_data():
     assert checks["Nombre de colonnes"] == 3
     assert checks["Doublons"] == 0
     assert checks["Dates invalides"] == 0
+    assert checks["Ratings anormaux"] == 0
+
+
+def test_clean_data_repairs_duration_in_rating():
+    df = pd.DataFrame({
+        "title": ["Test Movie"],
+        "type": ["Movie"],
+        "director": ["Director"],
+        "cast": ["Actor"],
+        "country": ["France"],
+        "date_added": ["January 1, 2020"],
+        "release_year": [2020],
+        "rating": ["84 min"],
+        "duration": [None],
+        "listed_in": ["Dramas"],
+        "description": ["A test movie"]
+    })
+
+    cleaned = clean_data(df)
+
+    assert pd.isna(cleaned.loc[0, "rating"])
+    assert cleaned.loc[0, "duration"] == "84 min"

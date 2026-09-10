@@ -14,10 +14,21 @@ def clean_data(df):
     df = df.copy()
 
     # Nettoyage des espaces dans les colonnes texte
-    text_columns = df.select_dtypes(include="object").columns
+    text_columns = df.select_dtypes(include=["str"]).columns
 
     for column in text_columns:
         df[column] = df[column].str.strip()
+
+    # Correction des durées placées par erreur dans la colonne rating
+    duration_in_rating = df["rating"].str.extract(
+        r"^(\d+)\s*min$",
+        expand=False
+    )
+
+    mask = duration_in_rating.notna()
+
+    df.loc[mask, "duration"] = duration_in_rating[mask] + " min"
+    df.loc[mask, "rating"] = pd.NA
 
     # Conversion de la date d'ajout
     df["date_added"] = pd.to_datetime(
@@ -34,11 +45,28 @@ def clean_data(df):
 
 def validate_data(df):
     """Effectue les contrôles principaux sur le dataset."""
+
+    ratings_anormaux = 0
+
+    if "rating" in df.columns:
+        ratings_anormaux = (
+            df["rating"]
+            .astype("string")
+            .str.match(r"^\d+\s*min$", na=False)
+            .sum()
+        )
+
+    dates_invalides = 0
+
+    if "date_added" in df.columns:
+        dates_invalides = df["date_added"].isna().sum()
+
     checks = {
         "Nombre de lignes": len(df),
         "Nombre de colonnes": len(df.columns),
         "Doublons": df.duplicated().sum(),
-        "Dates invalides": df["date_added"].isna().sum(),
+        "Dates invalides": dates_invalides,
+        "Ratings anormaux": ratings_anormaux,
     }
 
     return checks
@@ -55,7 +83,10 @@ def main():
     print("\n[1/4] Chargement des données...")
     df = load_data()
 
-    print(f"Dataset initial : {df.shape[0]} lignes, {df.shape[1]} colonnes")
+    print(
+        f"Dataset initial : "
+        f"{df.shape[0]} lignes, {df.shape[1]} colonnes"
+    )
 
     print("\n[2/4] Nettoyage...")
     df_clean = clean_data(df)
